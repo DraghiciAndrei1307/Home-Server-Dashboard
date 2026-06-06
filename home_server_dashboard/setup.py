@@ -23,7 +23,7 @@ setup(
     long_description=LONG_DESCRIPTION,
     author='Andrei Draghici',
     author_email='draghici.andrei12@yahoo.com',
-    url='https://github.com/draghiciandrei1307/python-automation',
+    url='https://github.com/draghiciandrei1307/home-server-dashboard',
     packages=find_packages(),
     install_requires=[
         'flask'
