@@ -1,0 +1,29 @@
+name: "Build package"
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-lastest
+    steps:
+      - name: "Get Code"
+        uses: actions/checkout@v6
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install setuptools wheel twine build 
+          pip install -r requirements.txt
+      - name: Build 'home_server_dashboard' package
+        run: |
+          cd home_server_dashboard
+          python -m build
+      - name: Create GitHub Release for 'home_server_dashboard' package
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            home_server_dashboard/dist/*.whl
+            home_server_dashboard/dist/*.tar.gz
+          tag_name: home_server_dashboard-v0.0.1
+          name: Release of 'home_server_dashboard' v0.0.1
