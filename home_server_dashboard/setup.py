@@ -31,7 +31,7 @@ setup(
     include_package_data=True,
     entry_points={
         'console_scripts': [
-            'run_server=python home_server_dashboard.home_server_dashboard:main'
+            'run_server=home_server_dashboard.home_server_dashboard:main'
         ]
     }
 
